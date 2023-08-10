@@ -38,3 +38,9 @@
 .no_decoration {
     text-decoration: none !important;
 }
+
+//modifiche bootstrap
+
+.dropdown-item:active {
+    background-color: rgb(99, 0, 0) !important;
+}

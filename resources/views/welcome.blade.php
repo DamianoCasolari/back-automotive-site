@@ -15,7 +15,7 @@
                 <h1 class="text-danger">Logo</h1>
             </div>
             <div class="display-6 text-center text_cloudy">
-            Accedi all'<strong class="fw-bold">area amministrativa</strong>  tramite login oppure registrati nel caso non sia già registrato
+            Accedi all'<strong class="fw-bold">area amministrativa</strong> oppure registrati nel caso non ti sia già registrato
         </div>
     </div>
     

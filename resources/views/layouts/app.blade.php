@@ -42,8 +42,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="no_decoration text_fire bg_slide p-1 my-1" href="{{url('/') }}">{{ __('Home') }}</a>
+                        <li class="nav-item rounded-2">
+                            <a class="no_decoration text_fire fw-bold bg_slide py-1 px-2 my-1" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
                     </ul>
 
@@ -52,22 +52,22 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item me-3">
-                            <a class=" text_fire bg_slide no_decoration p-1" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class=" text_fire bg_slide no_decoration fw-bold p-1" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class=" text_fire bg_slide no_decoration p-1" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class=" text_fire bg_slide no_decoration fw-bold p-1" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
                         @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text_fire" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <li class="nav-item dropdown ">
+                            <a id="navbarDropdown" class="nav-link fw-bold dropdown-toggle text_fire px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('admin') }}">{{__('Dashboard')}}</a>
-                                <a class="dropdown-item" href="{{ url('admin') }}">{{__('Annunci')}}</a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a>
+                                <a class="dropdown-item" href="#">{{__('Annunci')}}</a>
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profilo')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -85,7 +85,7 @@
             </div>
         </nav>
 
-        <main class="vh_100_without_header">
+        <main class="vh_100_without_header bg_pitch">
             @yield('content')
         </main>
     </div>
