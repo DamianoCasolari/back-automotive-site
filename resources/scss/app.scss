@@ -1,1 +1,12 @@
+@use "./partials/utilities_selectors" as *;
+@use "./partials/general_selectors" as *;
+@use "./partials/effects" as *;
+@use "./partials/variables" as *;
+
+@use "./components/header" as *;
+@use "./components/welcome_page" as *;
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Satisfy&display=swap');
 @import '~bootstrap/scss/bootstrap'
