@@ -15,9 +15,26 @@ return new class extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('name', 150)->unique();
+            $table->string('slug');
+            $table->string('cover_image')->nullable();
+            $table->unsignedInteger('price');
+            $table->unsignedInteger('km');
+            $table->date('date_of_enrollment');
+            $table->string('brand', 100);
+            $table->string('model', 255);
+            $table->string('fuel_type', 50)->nullable();
+            $table->string('transmission', 50)->nullable();
+            $table->unsignedSmallInteger('engine_displacement')->nullable();
+            $table->unsignedTinyInteger('car_doors_number')->nullable();
+            $table->string('color', 50)->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

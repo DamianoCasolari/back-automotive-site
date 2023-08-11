@@ -52,11 +52,11 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item me-3">
-                            <a class=" text_fire bg_slide no_decoration fw-bold p-1" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class=" text_fire bg_slide no_decoration fw-bold py-1 px-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class=" text_fire bg_slide no_decoration fw-bold p-1" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class=" text_fire bg_slide no_decoration fw-bold py-1 px-2" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
                         @else
