@@ -67,7 +67,7 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a>
-                                <a class="dropdown-item" href="#">{{__('Annunci')}}</a>
+                                <a class="dropdown-item" href="{{route('admin.ads.index')}}">{{__('Annunci')}}</a>
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profilo')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
