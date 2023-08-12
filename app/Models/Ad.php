@@ -11,7 +11,7 @@ class Ad extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'name', 'slug', 'cover_image', 'price', 'km', 'date_of_enrollment', 'brand', 'model', 'fuel_type', 'transmission', 'engine_enrollment', 'color', 'car_doors_number', 'description'];
+    protected $fillable = ['user_id', 'name', 'slug', 'cover_image', 'cover_image2', 'cover_image3', 'cover_image4', 'cover_image5', 'price', 'km', 'date_of_enrollment', 'brand', 'model', 'fuel_type', 'transmission', 'engine_enrollment', 'color', 'car_doors_number', 'description'];
 
     public static function generateSlug($name)
     {
@@ -21,5 +21,9 @@ class Ad extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+    public function brand(): BelongsTo
+    {
+        return $this->belongsTo(Brand::class);
     }
 }

@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Ad;
 use App\Http\Requests\StoreAdRequest;
 use App\Http\Requests\UpdateAdRequest;
+use App\Models\Brand;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AdController extends Controller
 {
@@ -27,7 +31,9 @@ class AdController extends Controller
      */
     public function create()
     {
-        //
+        $brands = Brand::orderBy('name')->get();
+
+        return view("admin.ads.create", compact('brands'));
     }
 
     /**
@@ -38,7 +44,48 @@ class AdController extends Controller
      */
     public function store(StoreAdRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        // USED TO RETRIEVE NEXT ID THAT WILL BE USED
+        $statement = DB::select("SHOW TABLE STATUS LIKE 'ads'");
+        $nextId = $statement[0]->Auto_increment;
+
+        $val_data["slug"] = Ad::generateSlug($val_data["name"]) . "-" . $nextId;
+
+        $val_data["user_id"] = Auth::id();
+        if ($request->hasFile("cover_image")) {
+            $imagePath = Storage::put("uploads", $val_data["cover_image"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image"] = $imagePathWithoutPrefix;
+        }
+        if ($request->hasFile("cover_image2")) {
+            $imagePath = Storage::put("uploads", $val_data["cover_image2"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image2"] = $imagePathWithoutPrefix;
+        }
+        if ($request->hasFile("cover_image3")) {
+            $imagePath = Storage::put("uploads", $val_data["cover_image3"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image3"] = $imagePathWithoutPrefix;
+        }
+        if ($request->hasFile("cover_image4")) {
+            $imagePath = Storage::put("uploads", $val_data["cover_image4"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image4"] = $imagePathWithoutPrefix;
+        }
+        if ($request->hasFile("cover_image5")) {
+            $imagePath = Storage::put("uploads", $val_data["cover_image5"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image5"] = $imagePathWithoutPrefix;
+        }
+        $newAd = Ad::create($val_data);
+        // dd($newAd);
+
+        if ($request->has('brands')) {
+            $newAd->brands()->attach($request->brands);
+        }
+
+        return to_route("admin.ads.index")->with("message", "Annuncio aggiunto");
     }
 
     /**

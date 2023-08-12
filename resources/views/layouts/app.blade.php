@@ -23,10 +23,10 @@
     <div id="app">
 
 
-        <nav class="header navbar bg_carbon navbar-expand-md shadow-sm">
+        <nav class="header navbar bg_carbon navbar-expand-md ">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <div class="logo text-danger">
+                    <div class="logo text-danger mb-2 mb-md-0">
                         Logo
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
@@ -42,9 +42,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item rounded-2">
-                            <a class="no_decoration text_fire fw-bold bg_slide py-1 px-2 my-1" href="{{url('/') }}">{{ __('Home') }}</a>
+                        @auth
+                        <li class="nav-item my-2 my-md-0">
+                            <a class="no_decoration rounded-4 border-1 border text_fire fw-bold bg_slide py-1 px-2 my-1" href="{{route('admin.ads.index')}}">{{ __('Annunci') }}</a>
                         </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -65,7 +67,7 @@
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="z-index:1002;">
                                 <a class="dropdown-item" href="{{route('admin.dashboard')}}">{{__('Dashboard')}}</a>
                                 <a class="dropdown-item" href="{{route('admin.ads.index')}}">{{__('Annunci')}}</a>
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profilo')}}</a>
@@ -89,6 +91,7 @@
             @yield('content')
         </main>
     </div>
+    @yield('javascript')
 </body>
 
 </html>

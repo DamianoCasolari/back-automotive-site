@@ -1,5 +1,11 @@
+@use '../partials/variables' as *;
+
 .header {
     min-height: 70px !important;
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 20px 20px $clr_pitch !important;
 }
 
 .menù_icon {

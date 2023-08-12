@@ -38,13 +38,22 @@
 }
 
 
+//shadows
+
+.strong_shadow {
+    filter: drop-shadow(1px 1px 1px $clr_street);
+}
+
+
+
+
 //not specific utilities
 
 .no_decoration {
     text-decoration: none !important;
 }
 
-//modifiche bootstrap
+//changes to bootstrap class 
 
 .dropdown-item:active {
     background-color: rgb(99, 0, 0) !important;
