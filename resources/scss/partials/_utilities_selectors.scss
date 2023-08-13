@@ -14,7 +14,9 @@
 }
 
 .bg_pitch {
-    background-color: $clr_pitch;
+    // background-color: $clr_pitch;
+    background: rgb(15, 15, 15);
+    background: linear-gradient(146deg, rgba(15, 15, 15, 1) 0%, rgba(24, 41, 41, 1) 100%);
 }
 
 .bg_pomegranate {

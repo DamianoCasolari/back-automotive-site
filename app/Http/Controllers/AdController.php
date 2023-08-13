@@ -85,7 +85,7 @@ class AdController extends Controller
             $newAd->brands()->attach($request->brands);
         }
 
-        return to_route("admin.ads.index")->with("message", "Annuncio aggiunto");
+        return to_route("admin.ads.index")->with("message", "Annuncio aggiunto correttamente");
     }
 
     /**
@@ -96,7 +96,9 @@ class AdController extends Controller
      */
     public function show(Ad $ad)
     {
-        //
+        $brands = Brand::orderBy('name')->get();
+
+        return view('admin.ads.show', compact('ad', 'brands'));
     }
 
     /**
@@ -107,7 +109,13 @@ class AdController extends Controller
      */
     public function edit(Ad $ad)
     {
-        //
+        $brands = Brand::orderBy('name')->get();
+
+        if (Auth::id() === $ad->user_id) {
+            return view("admin.ads.edit", compact("ad", "brands"));
+        } else {
+            return to_route("admin.ads.index")->with("message", "Stai cercando di modificare un appartamento non tuo");
+        }
     }
 
     /**
@@ -119,7 +127,64 @@ class AdController extends Controller
      */
     public function update(UpdateAdRequest $request, Ad $ad)
     {
-        //
+        $val_data = $request->validated();
+
+
+
+        $val_data["slug"] = Ad::generateSlug($val_data["name"]) . "-" . $ad->id;
+
+        if ($request->hasFile("cover_image")) {
+            if ($ad->cover_image) {
+                Storage::delete($ad->cover_image);
+            }
+            $imagePath = Storage::put("uploads", $val_data["cover_image"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image"] = $imagePathWithoutPrefix;
+        }
+        if ($request->hasFile("cover_image2")) {
+            if ($ad->cover_image2) {
+                Storage::delete($ad->cover_image2);
+            }
+            $imagePath = Storage::put("uploads", $val_data["cover_image2"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image2"] = $imagePathWithoutPrefix;
+        }
+        if ($request->hasFile("cover_image3")) {
+            if ($ad->cover_image3) {
+                Storage::delete($ad->cover_image3);
+            }
+            $imagePath = Storage::put("uploads", $val_data["cover_image3"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image3"] = $imagePathWithoutPrefix;
+        }
+        if ($request->hasFile("cover_image4")) {
+            if ($ad->cover_image4) {
+                Storage::delete($ad->cover_image4);
+            }
+            $imagePath = Storage::put("uploads", $val_data["cover_image4"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image4"] = $imagePathWithoutPrefix;
+        }
+        if ($request->hasFile("cover_image5")) {
+            if ($ad->cover_image5) {
+                Storage::delete($ad->cover_image5);
+            }
+            $imagePath = Storage::put("uploads", $val_data["cover_image5"]);
+            $imagePathWithoutPrefix = str_replace("uploads/", "", $imagePath);
+            $val_data["cover_image5"] = $imagePathWithoutPrefix;
+        }
+
+        $ad->update($val_data);
+
+        // dd($ad);
+        // dd($val_data);
+
+        if ($request->has('brands')) {
+            $ad->brands()->attach($request->brands);
+        }
+
+        // dd($request->all());
+        return to_route("admin.ads.index")->with("message", "Annuncio aggiornato correttamente");
     }
 
     /**

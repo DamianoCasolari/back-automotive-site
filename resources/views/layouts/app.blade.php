@@ -43,8 +43,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @auth
-                        <li class="nav-item my-2 my-md-0">
-                            <a class="no_decoration rounded-4 border-1 border text_fire fw-bold bg_slide py-1 px-2 my-1" href="{{route('admin.ads.index')}}">{{ __('Annunci') }}</a>
+                        <li class="nav-item my-2 my-md-0 btn_push">
+                            <a class="no_decoration rounded-4 border-1 border text_fire fw-bold bg_slide py-1 px-2 my-1 btn_push" href="{{route('admin.ads.index')}}">{{ __('Annunci') }}</a>
                         </li>
                         @endauth
                     </ul>

@@ -150,14 +150,14 @@
                                                     </h5>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-dark rounded-5"
+                                                    <button type="button" class="btn btn-dark rounded-5 px-3"
                                                         data-bs-dismiss="modal">Chiudi</button>
                                                     <form
                                                         action="{{ route('admin.ads.destroy', $ad->slug) }}"
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger rounded-5">Elimina</button>
+                                                        <button type="submit" class="btn btn-danger rounded-5 px-3">Elimina</button>
                                                     </form>
                                                 </div>
                                             </div>
