@@ -195,6 +195,22 @@ class AdController extends Controller
      */
     public function destroy(Ad $ad)
     {
-        //
+        if ($ad->cover_image) {
+            Storage::delete($ad->cover_image);
+        }
+        if ($ad->cover_image2) {
+            Storage::delete($ad->cover_image2);
+        }
+        if ($ad->cover_image3) {
+            Storage::delete($ad->cover_image3);
+        }
+        if ($ad->cover_image4) {
+            Storage::delete($ad->cover_image4);
+        }
+        if ($ad->cover_image5) {
+            Storage::delete($ad->cover_image5);
+        }
+        $ad->delete();
+        return to_route("admin.ads.index")->with("message", "Annuncio: " . $ad->name . " eliminato con successo");
     }
 }

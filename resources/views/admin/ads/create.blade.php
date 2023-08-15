@@ -7,8 +7,8 @@
 @section('content')
 
     <div class="container d-flex justify-content-center align-items-center flex-column vh_100_without_header position-relative py-5">
-        <div class="border border-1 rounded-5 bg_slide btn_push text-center">
-            <a class="btn text-end strong_shadow" href="{{ route('admin.ads.index') }}">
+        <div class="border border-1 rounded-5 bg_slide btn_push text-center strong_shadow"">
+            <a class="btn text-end" href="{{ route('admin.ads.index') }}">
                 <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(208, 208, 208)"
                         class="bi bi-house-door-fill vertical_align_text_top" viewBox="0 0 16 16">

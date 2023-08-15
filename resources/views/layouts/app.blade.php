@@ -43,7 +43,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @auth
-                        <li class="nav-item my-2 my-md-0 btn_push">
+                        <li class="nav-item my-2 my-md-0">
                             <a class="no_decoration rounded-4 border-1 border text_fire fw-bold bg_slide py-1 px-2 my-1 btn_push" href="{{route('admin.ads.index')}}">{{ __('Annunci') }}</a>
                         </li>
                         @endauth
@@ -54,11 +54,11 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item me-3">
-                            <a class=" text_fire bg_slide no_decoration fw-bold py-1 px-2" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class=" text_fire bg_slide no_decoration fw-bold py-1 px-2 rounded-5" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class=" text_fire bg_slide no_decoration fw-bold py-1 px-2" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class=" text_fire bg_slide no_decoration fw-bold py-1 px-2 rounded-5" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
                         @else

@@ -2,7 +2,6 @@
 
 @section('content')
     <section>
-        {{-- <div class="bg_double_show body_minus_header_block"></div> --}}
         <div class="container d-flex justify-content-center align-items-center flex-column vh_100_without_header position-relative">
             @if (session('message'))
                 <div class="alert alert-success alert-dismissible fade show mt-4 w-100" role="alert">
@@ -13,8 +12,8 @@
             <div class="d-flex align-items-center flex-column flex-md-row justify-content-between py-4 px-3 w-100">
             <h1 class="fw-bold text_fire">I tuoi annunci</h1>
             
-            <div class="border border-1 rounded-5 mt-3 mt-md-0 bg_slide btn_push">
-                <a class="btn text-end strong_shadow" href="{{ route('admin.ads.create') }}">
+            <div class="border border-1 rounded-5 mt-3 mt-md-0 bg_slide btn_push strong_shadow">
+                <a class="btn text-end" href="{{ route('admin.ads.create') }}">
                     <span class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(208, 208, 208)"
                             class="bi bi-plus-lg vertical_align_text_top" viewBox="0 0 16 16">

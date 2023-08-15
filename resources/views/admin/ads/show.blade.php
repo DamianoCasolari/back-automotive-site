@@ -2,6 +2,7 @@
 
 @section('javascript')
     {{-- @vite(['resources/js/adStatistics.js']) --}}
+    {{-- @vite(['resources/js/daysCounter.js']) --}}
 @endsection
 
 @section('content')
@@ -24,8 +25,8 @@
             @endif
 
 
-            <div class="border border-1 rounded-5 bg_slide btn_push text-center">
-                <a class="btn text-end strong_shadow" href="{{ route('admin.ads.index') }}">
+            <div class="border border-1 rounded-5 bg_slide btn_push text-center strong_shadow">
+                <a class="btn text-end " href="{{ route('admin.ads.index') }}">
                     <span class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(208, 208, 208)"
                             class="bi bi-house-door-fill vertical_align_text_top" viewBox="0 0 16 16">
@@ -38,7 +39,7 @@
             </div>
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text_cloudy w-100 mt-5">
                 <h1 class="fw-bold">{{ $ad->name }}</h1>
-                <h6 class="">Annuncio caricato il : {{$ad->created_at}}</h6>
+                <h6 class="days_counter" data-created="{{ $ad->created_at }}">Annuncio attivo da : {{ $ad->created_at->diffInDays(now()) }} giorni</h6>
             </div>
             <div class="info_container mt-4 d-flex justify-content-between w-100 flex-wrap text_fire">
                 <div

@@ -67,16 +67,16 @@
 @keyframes low_scale {
     0% {
         transform: scale(1);
-        filter: drop-shadow(1px 1px 1px $clr_street);
+        filter: drop-shadow(3px 3px 1px black);
     }
 
     50% {
         transform: scale(0.9);
-        filter: drop-shadow(0 0 0 $clr_street);
+        filter: drop-shadow(0 0 0 black);
     }
 
     100% {
         transform: scale(1);
-        filter: drop-shadow(1px 1px 1px $clr_street);
+        filter: drop-shadow(3px 3px 1px black);
     }
 }
