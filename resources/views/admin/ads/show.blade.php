@@ -46,9 +46,10 @@
                     class="mt-2 mt-md-0 col-12 col-md-6 d-flex flex-column align-items-start justify-content-center">
                 
                     <h3 class="fw-bold mb-3">
-                        @foreach($brands as $brand)
+                        {{-- @foreach($brands as $brand)
                         {{ $ad->brand == $brand->id ? $brand->name : '' }}
-                        @endforeach
+                        @endforeach --}}
+                    {{$ad->brandRelation->name}}
                     </h3>
                     <p><strong>Modello : </strong> {{ $ad->model }}</p>
                     <hr class=" text_cloudy w-75">

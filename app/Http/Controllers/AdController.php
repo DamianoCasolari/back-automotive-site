@@ -20,7 +20,7 @@ class AdController extends Controller
     public function index()
     {
         // dd(Ad::all());
-        $ads = Ad::orderByDesc('id')->get();
+        $ads = Auth::user()->ads()->orderByDesc('id')->get();
         return view('admin.ads.index', compact('ads'));
     }
 

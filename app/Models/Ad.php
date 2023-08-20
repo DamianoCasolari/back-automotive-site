@@ -22,7 +22,7 @@ class Ad extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function brand(): BelongsTo
+    public function brandRelation(): BelongsTo
     {
         return $this->belongsTo(Brand::class, 'brand');
     }
