@@ -80,3 +80,15 @@
         filter: drop-shadow(3px 3px 1px black);
     }
 }
+
+
+
+.hover_white {
+
+    transition-duration: 0.7s;
+
+    &:hover {
+        color: $clr_cloudy !important;
+        filter: brightness(140%);
+    }
+}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AdController;
+use App\Http\Controllers\API\LeadController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/ads', [AdController::class, 'index']);
 Route::get('/ads/{ads:slug}', [AdController::class, 'show']);
+
+Route::post('/contacts', [LeadController::class, 'store']);

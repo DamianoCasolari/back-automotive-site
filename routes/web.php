@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Mail\NewLead;
+use App\Models\Lead;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/mailable', function () {
+    $lead = Lead::find(1);
+    return new NewLead($lead);
 });
 
 

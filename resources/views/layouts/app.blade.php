@@ -46,6 +46,9 @@
                         <li class="nav-item my-2 my-md-0">
                             <a class="no_decoration rounded-4 border-1 border text_fire fw-bold bg_slide py-1 px-2 my-1 btn_push" href="{{route('admin.ads.index')}}">{{ __('Annunci') }}</a>
                         </li>
+                        <li class="nav-item my-2 my-md-0">
+                            <a class="no_decoration  text_fire fw-bold  py-1 px-2 hover_white px-md-3 my-1 btn_push" href="http://localhost:5174">{{ __('Vai al sito') }}</a>
+                        </li>
                         @endauth
                     </ul>
 
