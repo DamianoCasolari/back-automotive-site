@@ -14,12 +14,12 @@ class LeadController extends Controller
 {
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'name' => 'required|min:3',
             'email' => 'email|nullable',
-            'number' => 'numeric|required',
+            'phone_number' => 'numeric|required',
             'message' => 'required'
         ]);
 
@@ -30,9 +30,8 @@ class LeadController extends Controller
             ]);
         }
 
-        $newLead = new Lead();
-        $newLead->fill($request->all());
-        Lead::create($newLead);
+
+        $newLead = Lead::create($request->all());
 
         Mail::to('info@giffe.it')->send(new NewLead($newLead));
 
